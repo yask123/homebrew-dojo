@@ -10,6 +10,10 @@ cask "dojo" do
   # Dojo keeps itself up to date with `nvim-update`; a cask upgrade would
   # reinstall from scratch, so Homebrew leaves it alone unless asked.
   auto_updates true
+  depends_on cask: %w[
+    font-monaspice-nerd-font
+    neovide-app
+  ]
   depends_on formula: %w[
     fd
     fzf
@@ -22,11 +26,7 @@ cask "dojo" do
     ripgrep
     tree-sitter-cli
   ]
-  depends_on cask: %w[
-    font-monaspice-nerd-font
-    neovide-app
-  ]
-  depends_on macos: ">= :ventura"
+  depends_on macos: :ventura
 
   # Installs the config to ~/.config/nvim (backing up any existing one),
   # restores the pinned plugins, and builds ~/Applications/Dojo.app.
