@@ -5,7 +5,7 @@ cask "dojo" do
   url "https://github.com/yask123/nvim-macos/archive/refs/tags/v#{version}.tar.gz"
   name "Dojo"
   desc "Quiet code editor built on Neovim"
-  homepage "https://dojo-editor.vercel.app/"
+  homepage "https://yask.dev/dojo"
 
   # Dojo keeps itself up to date with `nvim-update`; a cask upgrade would
   # reinstall from scratch, so Homebrew leaves it alone unless asked.

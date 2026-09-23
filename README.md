@@ -1,6 +1,6 @@
 # Dojo for Homebrew
 
-[Dojo](https://dojo-editor.vercel.app/) is a quiet code editor for macOS, built on Neovim.
+[Dojo](https://yask.dev/dojo) is a quiet code editor for macOS, built on Neovim.
 
 ```bash
 brew install --cask yask123/dojo/dojo
