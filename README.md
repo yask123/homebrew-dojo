@@ -1,22 +1,17 @@
-# Dojo for Homebrew
+# Dojo is now Code
 
-[Dojo](https://yask.dev/dojo) is a quiet code editor for macOS, built on Neovim.
-
-```bash
-brew install --cask yask123/dojo/dojo
-```
-
-This installs Neovim, Neovide and the Monaspice font, sets up the config in
-`~/.config/nvim` (any existing one is backed up first), and builds
-`~/Applications/Dojo.app`. Update with `nvim-update`; remove with
-`brew uninstall --cask dojo` (your Neovim files are moved to a recoverable
-backup, not deleted).
-
-Already have Neovide or the Monaspice font installed by hand? Let Homebrew take
-them over first:
+The editor that was called Dojo is now [Code](https://yask.dev/code), and its
+Homebrew cask lives in [yask123/tap](https://github.com/yask123/homebrew-tap):
 
 ```bash
-brew install --cask --adopt neovide-app font-monaspice-nerd-font
+brew install yask123/tap/code
 ```
+
+Already have Dojo? That same command, or the one-line installer on
+[yask.dev/code](https://yask.dev/code), upgrades it in place: `Dojo.app` is
+replaced by `Code.app`, and your sessions, recent projects and settings stay.
+
+The old command (`brew install --cask yask123/dojo/dojo`) still works and
+installs Code; Homebrew will tell you it has moved.
 
 Source: [yask123/nvim-macos](https://github.com/yask123/nvim-macos).

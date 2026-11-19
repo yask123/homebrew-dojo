@@ -1,14 +1,17 @@
 cask "dojo" do
-  version "1.0.0"
-  sha256 "c928aae22506b93c40b2561979a50d6d9b70f55e4a6259dd2dd2ccbb8ba10e40"
+  version "1.1.0"
+  sha256 "9d7f62442059c0a39e2c41d80259008053d1dd2e30abfd6be2e6b2747edcef6d"
 
   url "https://github.com/yask123/nvim-macos/archive/refs/tags/v#{version}.tar.gz"
+  name "Code"
   name "Dojo"
-  desc "Quiet code editor built on Neovim"
-  homepage "https://yask.dev/dojo"
+  desc "Quiet code editor built on Neovim, now called Code"
+  homepage "https://yask.dev/code"
 
-  # Dojo keeps itself up to date with `nvim-update`; a cask upgrade would
-  # reinstall from scratch, so Homebrew leaves it alone unless asked.
+  # The app is called Code now, and its cask lives in yask123/tap. This one
+  # still installs the same thing, so old instructions keep working.
+  deprecate! date: "2026-11-19", because: "is now called Code", replacement_cask: "yask123/tap/code"
+
   auto_updates true
   depends_on cask: %w[
     font-monaspice-nerd-font
@@ -28,22 +31,22 @@ cask "dojo" do
   ]
   depends_on macos: :ventura
 
-  # Installs the config to ~/.config/nvim (backing up any existing one),
-  # restores the pinned plugins, and builds ~/Applications/Dojo.app.
+  # Installs the editor to ~/.config/nvim, restores the pinned plugins and
+  # builds ~/Applications/Code.app (an old Dojo.app is removed).
   installer script: {
     executable: "nvim-macos-#{version}/install.sh",
     args:       ["--skip-brew", "--ref", "v#{version}"],
   }
 
   # Moves the Neovim config, plugins and state to a recoverable backup under
-  # ~/.local/state/nvim-bootstrap/uninstalled/ and removes Dojo.app.
+  # ~/.local/state/nvim-bootstrap/uninstalled/ and removes the app.
   uninstall script: {
     executable: "nvim-macos-#{version}/scripts/uninstall.sh",
   }
 
   caveats <<~EOS
-    Open Dojo from Spotlight, or run: dojo <folder>
-    Any previous Neovim setup was moved to ~/.local/state/nvim-bootstrap/backups/.
+    Dojo is now called Code. Open Code from Spotlight.
+    New installs: brew install yask123/tap/code
     Update later with: nvim-update
   EOS
 end
